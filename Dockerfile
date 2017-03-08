@@ -18,3 +18,4 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg \
   && chmod +x /usr/local/bin/yarn \
   && apk del .build-deps-yarn
   
+RUN apk -U add git openssh docker curl
