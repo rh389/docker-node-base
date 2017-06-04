@@ -1,8 +1,8 @@
-FROM node:7.6-alpine
+FROM node:8-alpine
 MAINTAINER rh389
 RUN apk update
 
-ENV YARN_VERSION 0.20.3
+ENV YARN_VERSION 0.24.6
 
 RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg \
   && for key in \
@@ -19,3 +19,4 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg \
   && apk del .build-deps-yarn
   
 RUN apk -U add git openssh docker curl
+RUN mkdir ~/workspace && chmod -R 777 ~/workspace
